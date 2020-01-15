@@ -1,11 +1,8 @@
 // Header inclusions, if any...
 #include <omp.h>
+#include <cstring>
 
 #include "gemm.h"
-
-using std::clog;
-using std::endl;
-using std::vector;
 
 // Using declarations, if any...
 
