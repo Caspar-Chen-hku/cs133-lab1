@@ -29,12 +29,11 @@ void GemmParallel(const float a[kI][kK], const float b[kK][kJ],
     int k,j;
   #pragma omp parallel for private(k,j) schedule(static)
     for (int i=0; i< kI; i++){
-      std::memset(c[i], 0, sizeof(float) * kJ);
         #pragma omp parallel for private(j) schedule(static)
         for (k=0; k< kK; k++){
-          #pragma omp parallel for schedule(static)
           for (j=0; j< kJ; j++){
-              c[i][j] += a[i][k] * b[k][j];
+            std::memset(c[i][j], 0, sizeof(float));
+            c[i][j] += a[i][k] * b[k][j];
           }
         }
     }
