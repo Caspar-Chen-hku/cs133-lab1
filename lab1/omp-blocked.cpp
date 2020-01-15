@@ -16,10 +16,10 @@ void GemmParallelBlocked(const float a[kI][kK], const float b[kK][kJ],
         std::memset(c[i], 0, sizeof(float) * kJ);
         for (k=0; k< kK; k+=BLOCK_SIZE){
           for (j=0; j< kJ; j+=BLOCK_SIZE){
-            for (i0=0; i0<BLOCK_SIZE; i0++){
-              for (k0=0; k0<BLOCK_SIZE; k0++){
-                for (j0=0; j0<BLOCK_SIZE; j0++){
-                  c[i+i0][j+j0] += a[i+i0][k+k0] * b[k+k0][j+j0];
+            for (i0=i; i0<i+BLOCK_SIZE; i0++){
+              for (k0=k; k0<k+BLOCK_SIZE; k0++){
+                for (j0=j; j0<j+BLOCK_SIZE; j0++){
+                  c[i0][j0] += a[i0][k0] * b[k0][j0];
                 }
               }
             }
