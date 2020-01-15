@@ -39,5 +39,4 @@ void GemmParallel(const float a[kI][kK], const float b[kK][kJ],
         }
     }
    }
-   return 0;
 }
