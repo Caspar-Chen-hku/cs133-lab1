@@ -7,6 +7,8 @@
 using std::clog;
 using std::endl;
 
+// random comments
+
 int main(int argc, char** argv) {
   // Allocate memory on heap to avoid stack overflow.
   static float a[kI][kK];
