@@ -10,7 +10,7 @@ void GemmParallelBlocked(const float a[kI][kK], const float b[kK][kJ],
                          float c[kI][kJ]) {
   // Your code goes here...
   int k,j,k0,j0;
-  int BLOCK_SIZE = 4;
+  int BLOCK_SIZE = 256;
   #pragma omp parallel for private(k,j,k0,j0)
     for (int i=0; i< kI; i++){
         std::memset(c[i], 0, sizeof(float) * kJ);
