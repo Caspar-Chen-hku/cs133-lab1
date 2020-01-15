@@ -3,6 +3,10 @@
 
 #include "gemm.h"
 
+using std::clog;
+using std::endl;
+using std::vector;
+
 // Using declarations, if any...
 
 void GemmParallel(const float a[kI][kK], const float b[kK][kJ],
