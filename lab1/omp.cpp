@@ -14,12 +14,12 @@ void GemmParallel(const float a[kI][kK], const float b[kK][kJ],
         std::memset(c[i], 0, sizeof(float) * kJ);
         for (k=0; k< kK; k++){
           total = 0;
-          #pragma omp for reduction(+:total)
+          //#pragma omp for reduction(+:total)
           for (j=0; j< kJ; j++){
               //c[i][j] += a[i][k] * b[k][j];
               total += a[i][k] * b[k][j];
           }
-          #pragma omp single
+          //#pragma omp single
           c[i][j] += total;
         }
     }
