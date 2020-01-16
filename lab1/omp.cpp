@@ -19,7 +19,7 @@ void GemmParallel(const float a[kI][kK], const float b[kK][kJ],
               //c[i][j] += a[i][k] * b[k][j];
               total += a[i][k] * b[k][j];
           }
-          #pragma omp single
+          #pragma omp parallel single
           c[i][j] += total;
         }
     }
