@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "gemm.h"
-#include <omp.h>
 
 using std::clog;
 using std::endl;
@@ -32,7 +31,6 @@ int main(int argc, char** argv) {
     }
   }
 
-  clog << "number of CPUs " << omp_get_num_procs() << endl;
 
   Init(a, b);
 
