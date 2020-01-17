@@ -9,13 +9,9 @@
 void GemmParallelBlocked(const float a[kI][kK], const float b[kK][kJ],
                          float c[kI][kJ]) {
   // Your code goes here...
-  // int BLOCK_SIZE_I = kI/8;
-  // int BLOCK_SIZE_J = kJ/4;
-  // int BLOCK_SIZE_K = kK/64;
-
-  int BLOCK_SIZE_I = 512;
-  int BLOCK_SIZE_J = 1024;
-  int BLOCK_SIZE_K = 64;
+  int BLOCK_SIZE_I = kI/8;
+  int BLOCK_SIZE_J = kJ/4;
+  int BLOCK_SIZE_K = kK/64;
 
   #pragma omp parallel for schedule(static) num_threads(8)
     for (int i=0; i< kI; i+=BLOCK_SIZE_I){
