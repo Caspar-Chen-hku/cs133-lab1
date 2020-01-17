@@ -11,7 +11,7 @@ void GemmParallelBlocked(const float a[kI][kK], const float b[kK][kJ],
   // Your code goes here...
   int BLOCK_SIZE = kI/16;
 
-  #pragma omp parallel for private(k,j,i0,k0,j0) schedule(static) num_threads(6)
+  #pragma omp parallel for schedule(static) num_threads(6)
     for (int i=0; i< kI; i+=BLOCK_SIZE){
         for (int k=0; k< kK; k+=BLOCK_SIZE){
           for (int j=0; j< kJ; j+=BLOCK_SIZE){
