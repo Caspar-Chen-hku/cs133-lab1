@@ -15,7 +15,7 @@ void GemmSequential(const float a[kI][kK], const float b[kK][kJ],
 void GemmParallel(const float a[kI][kK], const float b[kK][kJ],
                   float c[kI][kJ]);
 void GemmParallelBlocked(const float a[kI][kK], const float b[kK][kJ],
-                         float c[kI][kJ]);
+                         float c[kI][kJ], int BLOCK_SIZE_I, int BLOCK_SIZE_J, int BLOCK_SIZE_K);
 void Benchmark(
     void (*gemm)(const float[kI][kK], const float[kK][kJ], float[kI][kJ]),
     const float a[kI][kK], const float b[kK][kJ], float c[kI][kJ]);
