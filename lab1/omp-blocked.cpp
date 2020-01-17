@@ -9,7 +9,7 @@
 void GemmParallelBlocked(const float a[kI][kK], const float b[kK][kJ],
                          float c[kI][kJ]) {
   // Your code goes here...
-  int BLOCK_SIZE_I = kI/16;
+  int BLOCK_SIZE_I = kI/8;
   int BLOCK_SIZE_J = kJ/8;
   int BLOCK_SIZE_K = kK/64;
 
