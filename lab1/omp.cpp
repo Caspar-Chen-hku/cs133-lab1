@@ -22,9 +22,15 @@ void GemmTrans(const float b[kK][kJ], float bt[kJ][kK]){
 
 void GemmParallel(const float a[kI][kK], const float b[kK][kJ],
                   float c[kI][kJ]) {
+  
+  #pragma omp parallel for schedule(static) num_threads(8)
+  for (int i = 0; i < kI; ++i) {
+    std::memset(c[i], 0, sizeof(float) * kJ);
+  }
+
   #pragma omp parallel for schedule(static) num_threads(8)
     for (int i=0; i< kI; i++){
-      std::memset(c[i], 0, sizeof(float) * kJ);
+      //std::memset(c[i], 0, sizeof(float) * kJ);
         for (int k=0; k< kK; k++){
           for (int j=0; j< kJ; j++)
           {
