@@ -6,20 +6,6 @@
 
 // Using declarations, if any...
 
-/*
-void GemmTrans(const float b[kK][kJ], float bt[kJ][kK]){
-  int j;
-  #pragma omp parallel for private(j) schedule(static) num_threads(8)
-  for (j = 0; j < kK; j++)
-	{
-		for (int i = 0; i < kJ; i++)
-		{
-			bt[i][j] = b[j][i];
-		}
-	}
-}
-*/
-
 void GemmParallel(const float a[kI][kK], const float b[kK][kJ],
                   float c[kI][kJ]) {
 
